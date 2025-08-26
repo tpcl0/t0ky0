@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>จำเป็นเจแปน คริสมาสต์นี้ แม่ขอเป็นซานต้าเอง!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* Using a beige-like color from Tailwind's stone palette */
+            background-color: #f5f5f4; /* stone-100 */
+            font-family: 'Inter', sans-serif;
+            color: #57534e; /* stone-600 */
+        }
+        .thai-title {
+            font-family: 'Kanit', sans-serif;
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 5.5rem; /* Adjust to center with the time width */
+            top: 1rem;
+            bottom: -1rem;
+            width: 2px;
+            background-color: #e7e5e4; /* stone-200 */
+            z-index: 0;
+        }
+         .timeline-item:last-child::before {
+            display: none;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: calc(5.5rem - 0.375rem); /* Center the dot on the line */
+            top: 0.8rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+            background-color: #a8a29e; /* stone-400 */
+            z-index: 1;
+        }
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+    </style>
+    <script>
+        // Function to open links in a popup window
+        function openInPopup(url) {
+            // This prevents the toggleDay function from firing when a link is clicked
+            event.stopPropagation(); 
+            window.open(url, 'mapPopup', 'width=800,height=600,scrollbars=yes,resizable=yes');
+            return false;
+        }
+
+        // Function to toggle itinerary day visibility with a smooth animation
+        function toggleDay(contentId, arrowId) {
+            const content = document.getElementById(contentId);
+            const arrow = document.getElementById(arrowId);
+            
+            if (content.style.maxHeight) {
+                // Collapse the section
+                content.style.maxHeight = null;
+                arrow.classList.remove('rotate-180');
+            } else {
+                // Expand the section
+                content.style.maxHeight = content.scrollHeight + "px";
+                arrow.classList.add('rotate-180');
+            }
+        }
+    </script>
+</head>
+<body class="bg-stone-100 text-stone-700">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 sm:p-8 max-w-6xl">
+
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <!-- Christmas Red for the title -->
+            <h1 class="thai-title text-3xl md:text-5xl font-bold text-red-800 mb-2 leading-tight">
+                จำเป็นเจแปน คริสมาสต์นี้<br>แม่ขอเป็นซานต้าเอง!
+            </h1>
+            <p class="text-xl md:text-2xl text-stone-500 mb-6 mt-4">Oh Japan, This Christmas, Mom wants to be Santa! 🎅</p>
+            <!-- Christmas Green for the date badge -->
+            <div class="inline-block bg-emerald-800 text-white font-bold py-2 px-6 rounded-full shadow-lg">
+                <p class="text-lg">12 - 19 December 2025</p>
+            </div>
+        </header>
+
+        <!-- Team Members Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10 text-stone-800">สมาชิกทริปนี้</h2>
+            
+            <!-- Grid container for team members -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Member Cards -->
+                <div class="bg-white rounded-lg shadow-md p-4 text-center card-hover-effect"><img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/472784051_8926452797402642_1277206278447123084_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=2DjgCgnleLkQ7kNvwFZDUqp&_nc_oc=AdkdHuYkHtfeeq-1JwHR15b2qkjtzWKiM4KYGMe_12zRYUtqiqU_I7iQZCedjkkpGd9ZciQFIx8OO-5WibaDwRFf&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=Dl7meaixANgjwx3E2oYeHQ&oh=00_AfX-xkNztK-nys_cJDHRJzAoNHngpODrZezAwu7ym6jD2Q&oe=68B37E24" alt="Team member Ball" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-stone-200 object-cover"><h3 class="text-xl font-semibold text-stone-800">Ball</h3></div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center card-hover-effect"><img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t51.82787-15/535534455_18528302899029399_1164065207298244080_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=_8LR9dXJiccQ7kNvwFbq4yo&_nc_oc=AdkY9tzUtoJRdCxyFuCj-JRhm6BZmiRPSIrKvMbvoTmS35bxC27sjfnUW7q_Xt37J9VAPPWUQdh_ROLsYv3vBdiR&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=YkIB_5MYa9hdjJVf7g2cqw&oh=00_AfU25hn6Vbl5d4B5KRUBPntVStEW5cA4CeNK0rZD3lpaJw&oe=68B375DE" alt="Team member Pear" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-stone-200 object-cover"><h3 class="text-xl font-semibold text-stone-800">Pear</h3></div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center card-hover-effect"><img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t51.82787-15/529954768_18526598275029399_2346808975127226155_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=CbqoCGmu11MQ7kNvwHdCiKp&_nc_oc=AdlKkqxySTTMPpxrJ2-4l-sW27HIiE64apN0SK08XAWokS-9gcU1so0yhfn6MelgIc2dRSt9yYK6UbLn54ZPtDCI&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=1QeLzW4WKv9NLQzWag1sSg&oh=00_AfUTMPYtsJvhwugCo_gan4P8dbCaIsrX6OqYsd61aowQSQ&oe=68B39CB8" alt="Team member Bay" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-stone-200 object-cover"><h3 class="text-xl font-semibold text-stone-800">Bay</h3></div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center card-hover-effect"><img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t51.82787-15/538264057_18529160221029399_2158031169967583488_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=TfyNc0Tw0okQ7kNvwEiGz3o&_nc_oc=Adl7vYik4x5opStQTIq6VEKfWhCxCkqACDHWTxrA6OfR3TAganccgFuf8NovygF1ikB6NQ0BVEshanEmw-euNfX6&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=5LjlWuawlOaY3R5TiUVyiQ&oh=00_AfV7r0xEf_b8DjwoDYnZRwZynQwu7rv_shFHcvlOom-aXg&oe=68B397CD" alt="Team member Belle" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-stone-200 object-cover"><h3 class="text-xl font-semibold text-stone-800">Belle</h3></div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center card-hover-effect md:col-start-2"><img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t39.30808-6/530239038_10240217185304787_263976575685041413_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=PRDfc4m-s9wQ7kNvwFoC8Xs&_nc_oc=AdkNgoFPc3qk7UP9SO_qyoONlO5Ut5x7GeQkwQnUpwXHj5L5zZb0czwQOgCvWliYsVTyMyc3h0ewiFU6fUTi0cSA&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=pX7UKA9A2pv-q6BJY4DBYQ&oh=00_AfVpW2hv1BrDMk5cR5pMdJhv8yhn_tUced1L7mEYG7ermw&oe=68B38871" alt="Team member Miki" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-stone-200 object-cover"><h3 class="text-xl font-semibold text-stone-800">Miki</h3></div>
+                <div class="bg-white rounded-lg shadow-md p-4 text-center card-hover-effect"><img src="https://scontent.fphs3-1.fna.fbcdn.net/v/t51.75761-15/496766331_18499791307002238_2847954123120765518_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=zYcCUbaeHvoQ7kNvwE5kbIF&_nc_oc=AdmmvBzCSiCK5MvwiKQ_6AS-wSoy-ELXZ0a2BfFS-9Hhwh2tXS8T3lWzTGjfTBu8TgUMFn-eba_zdEHG1zoDnMAk&_nc_zt=23&_nc_ht=scontent.fphs3-1.fna&_nc_gid=zut_fP0scI-YpasNqgHrmw&oh=00_AfX-6EL5T_cVEoQpEm81uj6YfvS_4Tsdysb1zB65jpNhdw&oe=68B396F4" alt="Team member Clamp" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-stone-200 object-cover"><h3 class="text-xl font-semibold text-stone-800">Clamp</h3></div>
+            </div>
+        </section>
+
+        <!-- Line Breaker -->
+        <hr class="border-t-2 border-stone-300 mb-16">
+
+        <!-- Weather Forecast Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10 text-stone-800">พยากรณ์อากาศ</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Weather Cards -->
+                <div class="bg-white p-6 rounded-lg shadow-lg"><h3 class="text-2xl font-bold text-emerald-800 mb-2">รอบๆ ภูเขาไฟฟูจิ</h3><p class="font-semibold text-stone-600 mb-4">13 - 14 ธันวาคม</p><div class="flex items-center mb-4"><span class="text-6xl mr-4">🥶</span><div><p class="text-lg font-bold">หนาวและอากาศแจ่มใส</p><p class="text-stone-500">อากาศจะเย็นและสดชื่น โดยเฉพาะในตอนเช้าและตอนค่ำ เหมาะอย่างยิ่งสำหรับชมวิวภูเขาไฟฟูจิที่ชัดเจน!</p></div></div><div class="bg-stone-100 p-4 rounded-lg"><p><span class="font-bold">สูงสุด:</span> ~8°C</p><p><span class="font-bold">ต่ำสุด:</span> ~ -2°C</p><p class="mt-2 text-sm text-red-800">🧣 เตรียมเสื้อผ้าหลายชั้น, เสื้อโค้ทหนา, ถุงมือ, และหมวก</p></div></div>
+                <div class="bg-white p-6 rounded-lg shadow-lg"><h3 class="text-2xl font-bold text-emerald-800 mb-2">โตเกียว</h3><p class="font-semibold text-stone-600 mb-4">14 - 18 ธันวาคม</p><div class="flex items-center mb-4"><span class="text-6xl mr-4">🏙️</span><div><p class="text-lg font-bold">เย็นและแห้ง</p><p class="text-stone-500">อากาศในเมืองจะเย็นสบายและส่วนใหญ่มีแดดจัด อากาศจะหนาวเย็นลงเมื่อพระอาทิตย์ตกดิน</p></div></div><div class="bg-stone-100 p-4 rounded-lg"><p><span class="font-bold">สูงสุด:</span> ~12°C</p><p><span class="font-bold">ต่ำสุด:</span> ~ 5°C</p><p class="mt-2 text-sm text-red-800">🧥 เสื้อแจ็คเก็ตอุ่นๆ, สเวตเตอร์, และรองเท้าที่เดินสบายเป็นสิ่งจำเป็น</p></div></div>
+            </div>
+        </section>
+
+        <!-- Line Breaker -->
+        <hr class="border-t-2 border-stone-300 mb-16">
+
+        <!-- Itinerary Section -->
+        <section>
+            <h2 class="text-3xl font-bold text-center mb-10 text-stone-800">แผนเที่ยว</h2>
+            
+            <!-- Day 0 Card -->
+            <div class="bg-white rounded-lg shadow-lg mb-8 card-hover-effect overflow-hidden">
+                <!-- Clickable Header -->
+                <div class="flex justify-between items-center p-6 cursor-pointer" onclick="toggleDay('day0-content', 'day0-arrow')">
+                    <h3 class="text-2xl font-bold text-emerald-800">🎄 Day 0: Bangkok - Tokyo</h3>
+                    <div class="flex items-center">
+                        <p class="text-sm text-red-800 font-bold mr-4">12 Dec 2025 (Pre-trip)</p>
+                        <svg id="day0-arrow" class="w-6 h-6 text-stone-500 transition-transform transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <!-- Collapsible Content -->
+                <div id="day0-content" class="collapsible-content" style="max-height: 500px;">
+                    <div class="px-6 pb-6">
+                        <div class="space-y-4 text-stone-600"><div class="flex items-start"><p class="font-bold w-24">8:00 PM</p><p>Check-in ที่ท่าอากาศยานสุวรรณภูมิ ชั้น 4 เคาน์เตอร์สายการบิน THAI แถว L</p></div><div class="flex items-start"><p class="font-bold w-24">10:45 PM</p><p>เดินทางสู่ท่าอากาศยานฮาเนดะ ประเทศญี่ปุ่นโดยสายการบิน TG เที่ยวบินที่ NH 682</p></div></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6"><img src="https://thumbs.dreamstime.com/b/bangkok-july-suvarnabhumi-airport-night-july-bangkok-thailand-world-s-third-largest-single-building-43003047.jpg" alt="Suvarnabhumi Airport" class="rounded-lg object-cover w-full h-40"><img src="https://www.traicy.com/wp-content/uploads/2022/09/TG_788_official.jpg" alt="Thai Airways Plane" class="rounded-lg object-cover w-full h-40"><img src="https://i.redd.it/izjyxiqlv5571.jpg" alt="welcome to Haneda airport" class="rounded-lg object-cover w-full h-40"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 1 Card -->
+            <div class="bg-white rounded-lg shadow-lg mb-8 card-hover-effect overflow-hidden">
+                <!-- Clickable Header -->
+                <div class="flex justify-between items-center p-6 cursor-pointer" onclick="toggleDay('day1-content', 'day1-arrow')">
+                    <h3 class="text-2xl font-bold text-emerald-800">🎅 Day 1: Kamakura & Lake Yamanaka</h3>
+                    <div class="flex items-center">
+                        <p class="text-sm text-red-800 font-bold mr-4">13 Dec 2025</p>
+                        <svg id="day1-arrow" class="w-6 h-6 text-stone-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <!-- Collapsible Content -->
+                <div id="day1-content" class="collapsible-content">
+                     <div class="px-6 pb-6">
+                        <div class="relative space-y-6 text-stone-600"><div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">6:55 AM</p><p>เดินทางถึงท่าอากาศยานฮาเนดะ (HND) และผ่านขั้นตอนตรวจคนเข้าเมือง</p></div><div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">8:30 AM</p><p>เช่ารถกับ <a href="https://maps.app.goo.gl/6sfPa16kfGFecJ4U9" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Toyota Rent-a-Car Haneda Airport</a></p></div><div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">9:00 AM</p><p>เดินทางไปยัง Kamakura <span class="text-sm text-stone-500">(~1 ชม. / 50 กม.)</span></p></div><div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">10:00 AM</p><p>เดินเที่ยวและสักการะที่ศาลเจ้า <a href="https://maps.app.goo.gl/qm5YbCorSbcgBY6r5" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Tsurugaoka Hachimangu</a></p></div><div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">11:15 AM</p><p>เดินทางไปไหว้พระใหญ่ไดบุทสึที่วัด <a href="https://maps.app.goo.gl/obj6WqVbMfAe974B6" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Kotoku-in</a> และเดินต่อไปยังวัด <a href="https://maps.app.goo.gl/L5xhrMuScVQejiaw7" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Hase-dera</a></p></div><div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">1:00 PM</p><p>รับประทานอาหารกลางวัน (เหมาะสำหรับครอบครัวและเด็กๆ) บริเวณถนน <a href="https://maps.app.goo.gl/JNWTYkuNnTq9NSqK8" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Komachi-dori</a></p></div><div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">2:30 PM</p><p>เดินทางไป <a href="https://maps.app.goo.gl/bDwxrXMaU8z1vZVw7" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Gotemba Premium Outlets</a> <span class="text-sm text-stone-500">(~1.5 ชม. / 85 กม.)</span></p></div><div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">4:00 PM</p><p>ช้อปปิ้งที่ <a href="https://maps.app.goo.gl/bDwxrXMaU8z1vZVw7" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Gotemba Premium Outlets</a> และรับประทานอาหารเย็น</p></div><div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">7:00 PM</p><p>เดินทางไปโรงแรม <span class="text-sm text-stone-500">(~30 นาที / 20 กม.)</span> และ Check-in ที่ <a href="https://maps.app.goo.gl/mAgEqS4jTyZGuoNQ9" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Fuji Marriott Hotel Lake Yamanaka</a></p></div></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6"><img src="https://cdn.gaijinpot.com/app/uploads/sites/6/2016/02/Great-Buddah-of-Kamakura.jpg" alt="Great Buddha of Kamakura" class="rounded-lg object-cover w-full h-40"><img src="https://www.japan-guide.com/g18/5213_01.jpg" alt="Gotemba Premium Outlets" class="rounded-lg object-cover w-full h-40"><img src="https://www.yamanashi-kankou.jp/zenryoku/en/cycling/accommodation/images/fujimarriot_index.jpg" alt="marriott yamanakako" class="rounded-lg object-cover w-full h-40"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 Card -->
+            <div class="bg-white rounded-lg shadow-lg mb-8 card-hover-effect overflow-hidden">
+                <!-- Clickable Header -->
+                <div class="flex justify-between items-center p-6 cursor-pointer" onclick="toggleDay('day2-content', 'day2-arrow')">
+                    <h3 class="text-2xl font-bold text-emerald-800">🎁 Day 2: Fuji Views & Journey to Tokyo</h3>
+                    <div class="flex items-center">
+                        <p class="text-sm text-red-800 font-bold mr-4">14 Dec 2025</p>
+                        <svg id="day2-arrow" class="w-6 h-6 text-stone-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <!-- Collapsible Content -->
+                <div id="day2-content" class="collapsible-content">
+                     <div class="px-6 pb-6">
+                        <div class="relative space-y-6 text-stone-600">
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">9:00 AM</p><p>Check-out และเดินทางจากโรงแรม <span class="text-sm text-stone-500">(~10 นาที / 2 กม.)</span> ไปยัง <a href="https://maps.app.goo.gl/qRNaqHkfcLm3ZKoZ7" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Hirano Beach</a></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">9:45 AM</p><p>เดินทางไปยัง <a href="https://maps.app.goo.gl/95TUEBpCAcEoh1n86" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Lake Tanuki Observation Deck</a> <span class="text-sm text-stone-500">(~1.25 ชม. / 55 กม.)</span></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">11:15 AM</p><p>เที่ยวชมฟาร์มและทำกิจกรรมที่ <a href="https://maps.app.goo.gl/CTf7apXisyjxBRiq5" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Makaino Ranch</a> <span class="text-sm text-stone-500">(~20 นาที / 12 กม.)</span></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">12:30 PM</p><p>แวะสักการะที่ <a href="https://maps.app.goo.gl/1deGHdNyH8Htfz3k8" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Fujisan Hongu Sengen Taisha Shrine</a> <span class="text-sm text-stone-500">(~20 นาที / 10 กม.)</span></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">1:30 PM</p><p>รับประทานอาหารกลางวันใน Fujinomiya (แนะนำร้าน <a href="https://maps.app.goo.gl/XdsraVA12vfNf6PG7" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Fujinomiya Yakisoba Gakkai</a>)</p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">3:00 PM</p><p>เดินทางเข้าโตเกียวไปยังโรงแรม <a href="https://maps.app.goo.gl/UofChRx6agraMnrG6" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Sheraton Grande Tokyo Bay Hotel</a> <span class="text-sm text-stone-500">(~2.5 ชม. / 160 กม.)</span></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">5:30 PM</p><p>นำรถไปคืนที่ <a href="https://maps.app.goo.gl/vzZcGGxjjpyfsP6y8" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Toyota Rent-a-Car Nishifunabashiekimae</a> <span class="text-sm text-stone-500">(~30 นาที / 15 กม.)</span></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">6:30 PM</p><p>เดินทางโดยรถไฟไปชมไฟคริสต์มาสที่ <a href="https://maps.app.goo.gl/53M5ujjE5WzQ96wZ9" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Tokyo Midtown</a></p></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                            <img src="https://f.ptcdn.info/889/082/000/s71c651h1xkwPvpTO1Fmj-o.jpg" alt="Lake Tanuki" class="rounded-lg object-cover w-full h-40">
+                            <img src="https://i0.wp.com/lifelesson787164496.wordpress.com/wp-content/uploads/2021/02/img_20210223_1338034866506172820407014115.jpg?fit=900%2C1200&ssl=1" alt="Makaino Ranch" class="rounded-lg object-cover w-full h-40">
+                            <img src="https://www.tokyo-midtown.com/jp/event/upload/christmas2024_illumination_img_03.jpg" alt="Tokyo Midtown Christmas Illumination" class="rounded-lg object-cover w-full h-40">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 Card -->
+            <div class="bg-white rounded-lg shadow-lg mb-8 card-hover-effect overflow-hidden">
+                <!-- Clickable Header -->
+                <div class="flex justify-between items-center p-6 cursor-pointer" onclick="toggleDay('day3-content', 'day3-arrow')">
+                    <h3 class="text-2xl font-bold text-emerald-800">🌟 Day 3: Disneyland Magic</h3>
+                    <div class="flex items-center">
+                        <p class="text-sm text-red-800 font-bold mr-4">15 Dec 2025</p>
+                        <svg id="day3-arrow" class="w-6 h-6 text-stone-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <!-- Collapsible Content -->
+                <div id="day3-content" class="collapsible-content">
+                     <div class="px-6 pb-6">
+                        <div class="relative space-y-6 text-stone-600">
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">9:00 AM</p><p>เดินทางถึง <a href="https://maps.app.goo.gl/2eGpq4CvYTaPZsco6" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Tokyo Disneyland</a> และเริ่มต้นความสนุก!</p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">All Day</p><p>เพลิดเพลินกับเครื่องเล่น การแสดง และบรรยากาศคริสต์มาสทั่วทั้งปาร์ค</p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">Evening</p><p>ชมขบวนพาเหรดยามค่ำคืน "Tokyo Disneyland Electrical Parade Dreamlights"</p></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                            <img src="https://svcstrg.cld.navitime.jp/travelguide/p12060014/p12060014_01t.jpg" alt="Disneyland Castle with Christmas Decorations" class="rounded-lg object-cover w-full h-40">
+                            <img src="https://media1.tokyodisneyresort.jp/images/adventure/show/2565_thum_name.jpg" alt="Disneyland Night Parade" class="rounded-lg object-cover w-full h-40">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 4 Card -->
+            <div class="bg-white rounded-lg shadow-lg mb-8 card-hover-effect overflow-hidden">
+                <!-- Clickable Header -->
+                <div class="flex justify-between items-center p-6 cursor-pointer" onclick="toggleDay('day4-content', 'day4-arrow')">
+                    <h3 class="text-2xl font-bold text-emerald-800">⛄ Day 4: Culture & Christmas Lights</h3>
+                    <div class="flex items-center">
+                        <p class="text-sm text-red-800 font-bold mr-4">16 Dec 2025</p>
+                        <svg id="day4-arrow" class="w-6 h-6 text-stone-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <!-- Collapsible Content -->
+                <div id="day4-content" class="collapsible-content">
+                     <div class="px-6 pb-6">
+                        <div class="relative space-y-6 text-stone-600">
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">9:00 AM</p><p>เดินทางโดยรถไฟไปยัง <a href="https://maps.app.goo.gl/UoJwoRqB8fcEobBg7" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">วัดเซ็นโซจิ (Asakusa)</a></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">10:00 AM</p><p>เช่าชุดกิโมโนสำหรับเด็กๆ ถ่ายรูป และเดินเล่นหาขนมอร่อยๆ บริเวณรอบๆ วัด</p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">1:00 PM</p><p>เดินทางโดยรถไฟไปยัง <a href="https://maps.app.goo.gl/Dgjo1aQvkykMHs9N9" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">ศาลเจ้าเมจิ</a></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">2:30 PM</p><p>เดินชมความงามของใบแปะก๊วยสีเหลืองอร่าม</p></div>
+                             <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">Evening</p><p>เพลิดเพลินกับเทศกาลคริสต์มาสและไฟประดับที่ <a href="https://maps.app.goo.gl/t264KcsRDHkzjXeS9" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Meiji Jingu Gaien</a></p></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                            <img src="https://www.lemon8-app.com/seo/image?item_id=7442253015869932039&index=0&sign=4131f7718265d8a325f7cf8826425179" alt="Kids in Kimono at Asakusa" class="rounded-lg object-cover w-full h-40">
+                            <img src="https://travel.rakuten.com/contents/sites/contents/files/styles/max_1300x1300/public/2024-09/jingu-gaien-ginkgo-festival-guide_6.jpg?itok=F9i4Yxir" alt="Ginkgo trees at Meiji Shrine" class="rounded-lg object-cover w-full h-40">
+                            <img src="https://images.squarespace-cdn.com/content/v1/5d3ee66abacfa00001df6854/2aa76fd8-fdd2-4ec3-97df-117dcdc14d21/christmas-japan_1.jpg" alt="Meiji Jingu Gaien Christmas" class="rounded-lg object-cover w-full h-40">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 5 Card -->
+            <div class="bg-white rounded-lg shadow-lg mb-8 card-hover-effect overflow-hidden">
+                <!-- Clickable Header -->
+                <div class="flex justify-between items-center p-6 cursor-pointer" onclick="toggleDay('day5-content', 'day5-arrow')">
+                    <h3 class="text-2xl font-bold text-emerald-800">🎶 Day 5: Disney Sea & Roppongi Hills</h3>
+                    <div class="flex items-center">
+                        <p class="text-sm text-red-800 font-bold mr-4">17 Dec 2025</p>
+                        <svg id="day5-arrow" class="w-6 h-6 text-stone-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <!-- Collapsible Content -->
+                <div id="day5-content" class="collapsible-content">
+                     <div class="px-6 pb-6">
+                        <div class="relative space-y-6 text-stone-600">
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">9:00 AM</p><p>เดินทางไปยัง <a href="https://maps.app.goo.gl/CYqC5KkiCzE5J7dG8" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Tokyo DisneySea</a></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">Evening</p><p>เดินทางไปชมไฟคริสต์มาสที่ <a href="https://maps.app.goo.gl/iVR7H5fP9jEzUsqn7" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">Roppongi Hills</a></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24 text-amber-600">Note</p><p class="text-amber-600">แผนวันนี้ยังไม่สมบูรณ์ รอการเพิ่มเติม</p></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                            <img src="https://tdrexplorer.com/wp-content/uploads/2015/11/16-things-you-cannot-miss-at-tokyo-disneysea.png" alt="Tokyo Disney Sea" class="rounded-lg object-cover w-full h-40">
+                            <img src="https://www.realestate-tokyo.com/media/8439/roppongi_christmas.jpg" alt="Roppongi Hills Christmas Illumination" class="rounded-lg object-cover w-full h-40">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 6 Card -->
+            <div class="bg-white rounded-lg shadow-lg mb-8 card-hover-effect overflow-hidden">
+                <!-- Clickable Header -->
+                <div class="flex justify-between items-center p-6 cursor-pointer" onclick="toggleDay('day6-content', 'day6-arrow')">
+                    <h3 class="text-2xl font-bold text-emerald-800">🍪 Day 6: Last Minute Shopping & Departure</h3>
+                    <div class="flex items-center">
+                        <p class="text-sm text-red-800 font-bold mr-4">18 Dec 2025</p>
+                        <svg id="day6-arrow" class="w-6 h-6 text-stone-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <!-- Collapsible Content -->
+                <div id="day6-content" class="collapsible-content">
+                     <div class="px-6 pb-6">
+                        <div class="relative space-y-6 text-stone-600">
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">10:00 AM</p><p>Check-out จากโรงแรม (ฝากกระเป๋าไว้ที่โรงแรมก่อน)</p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">All Day</p><p>เดินทางโดยรถไฟเพื่อช้อปปิ้งของฝากในย่าน Omotesando, Shinjuku, และ Shibuya</p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">8:00 PM</p><p>เดินทางกลับโรงแรมเพื่อรับกระเป๋า</p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">8:30 PM</p><p>รถรับจ้างมารับเพื่อเดินทางไปยัง <a href="https://maps.app.goo.gl/kXmPE2Jyu4KTZjgEA" onclick="return openInPopup(this.href);" class="text-emerald-700 hover:underline">ท่าอากาศยานฮาเนดะ (HND)</a></p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">9:00 PM</p><p>Check-in ที่สนามบิน</p></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/7c/eb/cb/photo0jpg.jpg?w=800&h=500&s=1" alt="Shibuya Crossing" class="rounded-lg object-cover w-full h-40">
+                            <img src="https://www.meetandmatch.fr/wp-content/uploads/2024/03/1711043241048.jpg" alt="omotesando" class="rounded-lg object-cover w-full h-40">
+                            <img src="https://cdn.tohokuandtokyo.org/front_assets/images_other/spot/small/hanedaair01.jpg" alt="Haneda Airport Departure" class="rounded-lg object-cover w-full h-40">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 7 Card -->
+            <div class="bg-white rounded-lg shadow-lg mb-8 card-hover-effect overflow-hidden">
+                <!-- Clickable Header -->
+                <div class="flex justify-between items-center p-6 cursor-pointer" onclick="toggleDay('day7-content', 'day7-arrow')">
+                    <h3 class="text-2xl font-bold text-emerald-800">🔥 Day 7: Sayonara Japan!</h3>
+                    <div class="flex items-center">
+                        <p class="text-sm text-red-800 font-bold mr-4">19 Dec 2025</p>
+                        <svg id="day7-arrow" class="w-6 h-6 text-stone-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <!-- Collapsible Content -->
+                <div id="day7-content" class="collapsible-content">
+                     <div class="px-6 pb-6">
+                        <div class="relative space-y-6 text-stone-600">
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">0:20 AM</p><p>เดินทางสู่ท่าอากาศยานสุวรรณภูมิ โดยสายการบิน THAI เที่ยวบินที่ TG 661</p></div>
+                            <div class="flex items-start relative timeline-item"><div class="timeline-dot"></div><p class="font-bold w-24">4:45 AM</p><p>เดินทางถึงท่าอากาศยานสุวรรณภูมิโดยสวัสดิภาพ</p></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                            <img src="https://cdn.gaijinpot.com/app/uploads/sites/4/2016/08/iStock-1650199756-1024x640.jpg" alt="View from airplane leaving Japan" class="rounded-lg object-cover w-full h-40">
+                            <img src="https://i.ytimg.com/vi/ddBKW-GviaM/sddefault.jpg" alt="Suvarnabhumi Airport Arrival" class="rounded-lg object-cover w-full h-40">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Line Breaker -->
+        <hr class="border-t-2 border-stone-300 mb-16">
+
+        <!-- Additional Info Section -->
+        <section class="mb-16">
+             <div class="grid md:grid-cols-2 gap-8">
+                <!-- Luggage Info -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-4">🧳 Thai Airways Luggage Information</h3>
+                    <div class="space-y-2 text-stone-600">
+                        <p><span class="font-bold">Carry-on:</span> 1 piece, up to 7kg.</p>
+                        <p><span class="font-bold">Checked Baggage:</span> 2 pieces, up to 23kg each for Economy class.</p>
+                    </div>
+                </div>
+                <!-- Budget Estimation -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-emerald-800 mb-4">✈️💸 Budget Estimation</h3>
+                     <div class="space-y-2 text-stone-600">
+                        <p><span class="font-bold">Flights:</span> ~THB 25,000 - 35,000 per person.</p>
+                        <p><span class="font-bold">Hotels:</span> ~THB 4,000 - 8,000 per night (family room).</p>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="text-center mt-8 text-stone-400 text-xs">
+            <h3 class="text-sm font-bold text-stone-600 mb-2">Image Credits</h3>
+            <ul class="space-y-1">
+                <li><span class="font-semibold">Suvarnabhumi Airport:</span> <a href="https://thumbs.dreamstime.com/b/bangkok-july-suvarnabhumi-airport-night-july-bangkok-thailand-world-s-third-largest-single-building-43003047.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Thai Airways Plane:</span> <a href="https://www.traicy.com/wp-content/uploads/2022/09/TG_788_official.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">welcome to Haneda airport:</span> <a href="https://i.redd.it/izjyxiqlv5571.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Great Buddha of Kamakura:</span> <a href="https://cdn.gaijinpot.com/app/uploads/sites/6/2016/02/Great-Buddah-of-Kamakura.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Gotemba Premium Outlets:</span> <a href="https://www.japan-guide.com/g18/5213_01.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">marriott yamanakako:</span> <a href="https://www.yamanashi-kankou.jp/zenryoku/en/cycling/accommodation/images/fujimarriot_index.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Lake Tanuki:</span> <a href="https://f.ptcdn.info/889/082/000/s71c651h1xkwPvpTO1Fmj-o.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Makaino Ranch:</span> <a href="https://i0.wp.com/lifelesson787164496.wordpress.com/wp-content/uploads/2021/02/img_20210223_1338034866506172820407014115.jpg?fit=900%2C1200&ssl=1" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Tokyo Midtown Christmas Illumination:</span> <a href="https://www.tokyo-midtown.com/jp/event/upload/christmas2024_illumination_img_03.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Disneyland Castle with Christmas Decorations:</span> <a href="https://svcstrg.cld.navitime.jp/travelguide/p12060014/p12060014_01t.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Disneyland Night Parade:</span> <a href="https://media1.tokyodisneyresort.jp/images/adventure/show/2565_thum_name.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Kids in Kimono at Asakusa:</span> <a href="https://www.lemon8-app.com/seo/image?item_id=7442253015869932039&index=0&sign=4131f7718265d8a325f7cf8826425179" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Ginkgo trees at Meiji Shrine:</span> <a href="https://travel.rakuten.com/contents/sites/contents/files/styles/max_1300x1300/public/2024-09/jingu-gaien-ginkgo-festival-guide_6.jpg?itok=F9i4Yxir" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Meiji Jingu Gaien Christmas:</span> <a href="https://images.squarespace-cdn.com/content/v1/5d3ee66abacfa00001df6854/2aa76fd8-fdd2-4ec3-97df-117dcdc14d21/christmas-japan_1.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Tokyo Disney Sea:</span> <a href="https://tdrexplorer.com/wp-content/uploads/2015/11/16-things-you-cannot-miss-at-tokyo-disneysea.png" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Roppongi Hills Christmas Illumination:</span> <a href="https://www.realestate-tokyo.com/media/8439/roppongi_christmas.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Shibuya Crossing:</span> <a href="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/7c/eb/cb/photo0jpg.jpg?w=800&h=500&s=1" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">omotesando:</span> <a href="https://www.meetandmatch.fr/wp-content/uploads/2024/03/1711043241048.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Haneda Airport Departure:</span> <a href="https://cdn.tohokuandtokyo.org/front_assets/images_other/spot/small/hanedaair01.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">View from airplane leaving Japan:</span> <a href="https://cdn.gaijinpot.com/app/uploads/sites/4/2016/08/iStock-1650199756-1024x640.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+                <li><span class="font-semibold">Suvarnabhumi Airport Arrival:</span> <a href="https://i.ytimg.com/vi/ddBKW-GviaM/sddefault.jpg" target="_blank" class="text-emerald-800 hover:underline">Source</a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+</body>
+</html>
